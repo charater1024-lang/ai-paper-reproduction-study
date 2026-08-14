@@ -1,0 +1,13 @@
+{"query_id": "q-001", "query": "비밀번호 재설정 메일이 도착하지 않아요", "relevant_ids": ["kb-001"]}
+{"query_id": "q-002", "query": "로그인을 여러 번 실패해서 계정이 잠겼습니다", "relevant_ids": ["kb-002", "kb-001"]}
+{"query_id": "q-003", "query": "같은 주문이 카드에 두 번 결제됐어요", "relevant_ids": ["kb-003"]}
+{"query_id": "q-004", "query": "구독을 취소하면 남은 기간도 바로 못 쓰나요?", "relevant_ids": ["kb-004"]}
+{"query_id": "q-005", "query": "환불 승인 후 카드 내역에 언제 반영되나요?", "relevant_ids": ["kb-005"]}
+{"query_id": "q-006", "query": "운송장 조회가 이틀째 그대로예요", "relevant_ids": ["kb-006"]}
+{"query_id": "q-007", "query": "이미 출고된 주문의 배송지를 바꾸고 싶어요", "relevant_ids": ["kb-007"]}
+{"query_id": "q-008", "query": "받은 제품이 깨져 있는데 어떤 사진이 필요한가요?", "relevant_ids": ["kb-008"]}
+{"query_id": "q-009", "query": "API 요청에서 401이 발생합니다", "relevant_ids": ["kb-009"]}
+{"query_id": "q-010", "query": "429 응답을 안전하게 재시도하는 방법", "relevant_ids": ["kb-010"]}
+{"query_id": "q-011", "query": "5xx 장애 문의 전에 무엇을 기록해야 하나요?", "relevant_ids": ["kb-011"]}
+{"query_id": "q-012", "query": "개인정보를 내려받고 계정을 삭제하고 싶어요", "relevant_ids": ["kb-012"]}
+{"query_id": "q-013", "query": "회사 주소가 어디인가요?", "relevant_ids": []}

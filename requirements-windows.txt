@@ -1,0 +1,7 @@
+# Tested baseline: 64-bit Windows 10/11 + CPython 3.12.
+# The exact local-version pin selects the official CPU-only PyTorch wheel. Run
+# Install_GPU_PyTorch.cmd afterwards when an NVIDIA CUDA GPU is available.
+
+--extra-index-url https://download.pytorch.org/whl/cpu
+-r requirements.txt
+torch==2.13.0+cpu ; sys_platform == "win32" and python_version == "3.12"

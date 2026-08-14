@@ -1,0 +1,5 @@
+# Developer/verification tools. Install after requirements-windows.txt on
+# Windows, or after requirements.txt on another supported environment.
+
+pytest>=8,<10
+ruff>=0.9,<1

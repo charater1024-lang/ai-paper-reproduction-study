@@ -1,0 +1,35 @@
+# Normalize source files while preserving Windows-native launchers.
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.toml text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.csv text eol=lf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Keep notebooks diffable as JSON. GitHub also provides its rendered notebook diff.
+*.ipynb text eol=lf
+
+# These notebooks are generated from tools/*_curriculum and builder scripts.
+# GitHub labels/collapses them as generated; reviewers can still choose "Load diff".
+notebooks/exercises/*.ipynb linguist-generated=true
+notebooks/solutions/*.ipynb linguist-generated=true
+notebooks/paper_reproductions/exercises/*.ipynb linguist-generated=true
+notebooks/paper_reproductions/solutions/*.ipynb linguist-generated=true
+notebooks/field_reproductions/**/*.ipynb linguist-generated=true
+notebooks/field_reproductions/catalog.json linguist-generated=true
+
+# NumPy arrays and model checkpoints are binary artifacts.
+*.npz binary
+*.npy binary
+*.pt binary
+*.pth binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary

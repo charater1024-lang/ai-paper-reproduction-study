@@ -1,0 +1,611 @@
+{
+  "schema_version": 1,
+  "field_count": 7,
+  "papers_per_field": 10,
+  "paper_count": 70,
+  "notebook_count": 140,
+  "fields": [
+    {
+      "field_id": "vision",
+      "title": "컴퓨터 비전",
+      "papers": [
+        {
+          "number": "00",
+          "title": "Gradient-Based Learning Applied to Document Recognition",
+          "year": 1998,
+          "primary_url": "http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf",
+          "dataset_file": "data/field_curriculum/vision_shapes.npz",
+          "filename": "00_lenet5.ipynb"
+        },
+        {
+          "number": "01",
+          "title": "ImageNet Classification with Deep Convolutional Neural Networks",
+          "year": 2012,
+          "primary_url": "https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf",
+          "dataset_file": "data/field_curriculum/vision_shapes.npz",
+          "filename": "01_alexnet.ipynb"
+        },
+        {
+          "number": "02",
+          "title": "Very Deep Convolutional Networks for Large-Scale Image Recognition",
+          "year": 2014,
+          "primary_url": "https://arxiv.org/abs/1409.1556",
+          "dataset_file": "data/field_curriculum/vision_shapes.npz",
+          "filename": "02_vgg.ipynb"
+        },
+        {
+          "number": "03",
+          "title": "Going Deeper with Convolutions",
+          "year": 2014,
+          "primary_url": "https://arxiv.org/abs/1409.4842",
+          "dataset_file": "data/field_curriculum/vision_shapes.npz",
+          "filename": "03_googlenet_inception.ipynb"
+        },
+        {
+          "number": "04",
+          "title": "U-Net: Convolutional Networks for Biomedical Image Segmentation",
+          "year": 2015,
+          "primary_url": "https://arxiv.org/abs/1505.04597",
+          "dataset_file": "data/field_curriculum/vision_shapes.npz",
+          "filename": "04_unet.ipynb"
+        },
+        {
+          "number": "05",
+          "title": "Deep Residual Learning for Image Recognition",
+          "year": 2015,
+          "primary_url": "https://arxiv.org/abs/1512.03385",
+          "dataset_file": "data/field_curriculum/vision_shapes.npz",
+          "filename": "05_resnet.ipynb"
+        },
+        {
+          "number": "06",
+          "title": "Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks",
+          "year": 2015,
+          "primary_url": "https://arxiv.org/abs/1506.01497",
+          "dataset_file": "data/field_curriculum/vision_shapes.npz",
+          "filename": "06_faster_rcnn.ipynb"
+        },
+        {
+          "number": "07",
+          "title": "You Only Look Once: Unified, Real-Time Object Detection",
+          "year": 2015,
+          "primary_url": "https://arxiv.org/abs/1506.02640",
+          "dataset_file": "data/field_curriculum/vision_shapes.npz",
+          "filename": "07_yolov1.ipynb"
+        },
+        {
+          "number": "08",
+          "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+          "year": 2020,
+          "primary_url": "https://arxiv.org/abs/2010.11929",
+          "dataset_file": "data/field_curriculum/vision_shapes.npz",
+          "filename": "08_vision_transformer.ipynb"
+        },
+        {
+          "number": "09",
+          "title": "End-to-End Object Detection with Transformers",
+          "year": 2020,
+          "primary_url": "https://arxiv.org/abs/2005.12872",
+          "dataset_file": "data/field_curriculum/vision_shapes.npz",
+          "filename": "09_detr.ipynb"
+        }
+      ]
+    },
+    {
+      "field_id": "nlp_llm",
+      "title": "자연어 처리와 LLM",
+      "papers": [
+        {
+          "number": "00",
+          "title": "Distributed Representations of Words and Phrases and their Compositionality",
+          "year": 2013,
+          "primary_url": "https://arxiv.org/abs/1310.4546",
+          "dataset_file": "data/field_curriculum/nlp_corpus.json",
+          "filename": "00_word2vec_sgns.ipynb"
+        },
+        {
+          "number": "01",
+          "title": "Sequence to Sequence Learning with Neural Networks",
+          "year": 2014,
+          "primary_url": "https://arxiv.org/abs/1409.3215",
+          "dataset_file": "data/field_curriculum/nlp_corpus.json",
+          "filename": "01_seq2seq.ipynb"
+        },
+        {
+          "number": "02",
+          "title": "Neural Machine Translation by Jointly Learning to Align and Translate",
+          "year": 2014,
+          "primary_url": "https://arxiv.org/abs/1409.0473",
+          "dataset_file": "data/field_curriculum/nlp_corpus.json",
+          "filename": "02_bahdanau_attention.ipynb"
+        },
+        {
+          "number": "03",
+          "title": "Attention Is All You Need",
+          "year": 2017,
+          "primary_url": "https://arxiv.org/abs/1706.03762",
+          "dataset_file": "data/field_curriculum/nlp_corpus.json",
+          "filename": "03_attention_is_all_you_need.ipynb"
+        },
+        {
+          "number": "04",
+          "title": "Improving Language Understanding by Generative Pre-Training",
+          "year": 2018,
+          "primary_url": "https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf",
+          "dataset_file": "data/field_curriculum/nlp_corpus.json",
+          "filename": "04_gpt1.ipynb"
+        },
+        {
+          "number": "05",
+          "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+          "year": 2018,
+          "primary_url": "https://arxiv.org/abs/1810.04805",
+          "dataset_file": "data/field_curriculum/nlp_corpus.json",
+          "filename": "05_bert.ipynb"
+        },
+        {
+          "number": "06",
+          "title": "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer",
+          "year": 2019,
+          "primary_url": "https://arxiv.org/abs/1910.10683",
+          "dataset_file": "data/field_curriculum/nlp_corpus.json",
+          "filename": "06_t5.ipynb"
+        },
+        {
+          "number": "07",
+          "title": "Language Models are Few-Shot Learners",
+          "year": 2020,
+          "primary_url": "https://arxiv.org/abs/2005.14165",
+          "dataset_file": "data/field_curriculum/nlp_corpus.json",
+          "filename": "07_gpt3_few_shot.ipynb"
+        },
+        {
+          "number": "08",
+          "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+          "year": 2021,
+          "primary_url": "https://arxiv.org/abs/2106.09685",
+          "dataset_file": "data/field_curriculum/nlp_corpus.json",
+          "filename": "08_lora.ipynb"
+        },
+        {
+          "number": "09",
+          "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+          "year": 2020,
+          "primary_url": "https://arxiv.org/abs/2005.11401",
+          "dataset_file": "data/field_curriculum/nlp_corpus.json",
+          "filename": "09_rag.ipynb"
+        }
+      ]
+    },
+    {
+      "field_id": "generative",
+      "title": "생성 모델",
+      "papers": [
+        {
+          "number": "00",
+          "title": "Stacked Denoising Autoencoders: Learning Useful Representations in a Deep Network with a Local Denoising Criterion",
+          "year": 2010,
+          "primary_url": "https://www.jmlr.org/papers/v11/vincent10a.html",
+          "dataset_file": "data/field_curriculum/generative_samples.npz",
+          "filename": "00_stacked_denoising_autoencoder.ipynb"
+        },
+        {
+          "number": "01",
+          "title": "Auto-Encoding Variational Bayes",
+          "year": 2014,
+          "primary_url": "https://arxiv.org/abs/1312.6114",
+          "dataset_file": "data/field_curriculum/generative_samples.npz",
+          "filename": "01_vae.ipynb"
+        },
+        {
+          "number": "02",
+          "title": "Generative Adversarial Nets",
+          "year": 2014,
+          "primary_url": "https://papers.nips.cc/paper_files/paper/2014/hash/f033ed80deb0234979a61f95710dbe25-Abstract.html",
+          "dataset_file": "data/field_curriculum/generative_samples.npz",
+          "filename": "02_gan.ipynb"
+        },
+        {
+          "number": "03",
+          "title": "Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks",
+          "year": 2016,
+          "primary_url": "https://arxiv.org/abs/1511.06434",
+          "dataset_file": "data/field_curriculum/generative_samples.npz",
+          "filename": "03_dcgan.ipynb"
+        },
+        {
+          "number": "04",
+          "title": "Wasserstein GAN",
+          "year": 2017,
+          "primary_url": "https://proceedings.mlr.press/v70/arjovsky17a.html",
+          "dataset_file": "data/field_curriculum/generative_samples.npz",
+          "filename": "04_wgan.ipynb"
+        },
+        {
+          "number": "05",
+          "title": "Image-to-Image Translation with Conditional Adversarial Networks",
+          "year": 2017,
+          "primary_url": "https://openaccess.thecvf.com/content_cvpr_2017/html/Isola_Image-To-Image_Translation_With_CVPR_2017_paper.html",
+          "dataset_file": "data/field_curriculum/generative_samples.npz",
+          "filename": "05_pix2pix.ipynb"
+        },
+        {
+          "number": "06",
+          "title": "Unpaired Image-to-Image Translation Using Cycle-Consistent Adversarial Networks",
+          "year": 2017,
+          "primary_url": "https://openaccess.thecvf.com/content_iccv_2017/html/Zhu_Unpaired_Image-To-Image_Translation_ICCV_2017_paper.html",
+          "dataset_file": "data/field_curriculum/generative_samples.npz",
+          "filename": "06_cyclegan.ipynb"
+        },
+        {
+          "number": "07",
+          "title": "Denoising Diffusion Probabilistic Models",
+          "year": 2020,
+          "primary_url": "https://papers.nips.cc/paper_files/paper/2020/hash/4c5bcfec8584af0d967f1ab10179ca4b-Abstract.html",
+          "dataset_file": "data/field_curriculum/generative_samples.npz",
+          "filename": "07_ddpm.ipynb"
+        },
+        {
+          "number": "08",
+          "title": "Score-Based Generative Modeling through Stochastic Differential Equations",
+          "year": 2021,
+          "primary_url": "https://arxiv.org/abs/2011.13456",
+          "dataset_file": "data/field_curriculum/generative_samples.npz",
+          "filename": "08_score_sde.ipynb"
+        },
+        {
+          "number": "09",
+          "title": "High-Resolution Image Synthesis with Latent Diffusion Models",
+          "year": 2022,
+          "primary_url": "https://openaccess.thecvf.com/content/CVPR2022/html/Rombach_High-Resolution_Image_Synthesis_With_Latent_Diffusion_Models_CVPR_2022_paper.html",
+          "dataset_file": "data/field_curriculum/generative_samples.npz",
+          "filename": "09_latent_diffusion.ipynb"
+        }
+      ]
+    },
+    {
+      "field_id": "reinforcement_learning",
+      "title": "강화학습·에이전트",
+      "papers": [
+        {
+          "number": "00",
+          "title": "Simple Statistical Gradient-Following Algorithms for Connectionist Reinforcement Learning",
+          "year": 1992,
+          "primary_url": "https://doi.org/10.1007/BF00992696",
+          "dataset_file": "data/field_curriculum/gridworld.json",
+          "filename": "00_reinforce.ipynb"
+        },
+        {
+          "number": "01",
+          "title": "Human-level Control through Deep Reinforcement Learning",
+          "year": 2015,
+          "primary_url": "https://www.nature.com/articles/nature14236",
+          "dataset_file": "data/field_curriculum/gridworld.json",
+          "filename": "01_dqn.ipynb"
+        },
+        {
+          "number": "02",
+          "title": "Deep Reinforcement Learning with Double Q-learning",
+          "year": 2016,
+          "primary_url": "https://ojs.aaai.org/index.php/AAAI/article/view/10295",
+          "dataset_file": "data/field_curriculum/gridworld.json",
+          "filename": "02_double_dqn.ipynb"
+        },
+        {
+          "number": "03",
+          "title": "Dueling Network Architectures for Deep Reinforcement Learning",
+          "year": 2016,
+          "primary_url": "https://proceedings.mlr.press/v48/wangf16.html",
+          "dataset_file": "data/field_curriculum/gridworld.json",
+          "filename": "03_dueling_dqn.ipynb"
+        },
+        {
+          "number": "04",
+          "title": "Prioritized Experience Replay",
+          "year": 2016,
+          "primary_url": "https://arxiv.org/abs/1511.05952",
+          "dataset_file": "data/field_curriculum/gridworld.json",
+          "filename": "04_prioritized_replay.ipynb"
+        },
+        {
+          "number": "05",
+          "title": "Asynchronous Methods for Deep Reinforcement Learning",
+          "year": 2016,
+          "primary_url": "https://proceedings.mlr.press/v48/mniha16.html",
+          "dataset_file": "data/field_curriculum/gridworld.json",
+          "filename": "05_a3c.ipynb"
+        },
+        {
+          "number": "06",
+          "title": "Continuous Control with Deep Reinforcement Learning",
+          "year": 2016,
+          "primary_url": "https://arxiv.org/abs/1509.02971",
+          "dataset_file": "data/field_curriculum/gridworld.json",
+          "filename": "06_ddpg.ipynb"
+        },
+        {
+          "number": "07",
+          "title": "Proximal Policy Optimization Algorithms",
+          "year": 2017,
+          "primary_url": "https://arxiv.org/abs/1707.06347",
+          "dataset_file": "data/field_curriculum/gridworld.json",
+          "filename": "07_ppo.ipynb"
+        },
+        {
+          "number": "08",
+          "title": "Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor",
+          "year": 2018,
+          "primary_url": "https://proceedings.mlr.press/v80/haarnoja18b.html",
+          "dataset_file": "data/field_curriculum/gridworld.json",
+          "filename": "08_sac.ipynb"
+        },
+        {
+          "number": "09",
+          "title": "Mastering Chess and Shogi by Self-Play with a General Reinforcement Learning Algorithm",
+          "year": 2017,
+          "primary_url": "https://arxiv.org/abs/1712.01815",
+          "dataset_file": "data/field_curriculum/gridworld.json",
+          "filename": "09_alphazero.ipynb"
+        }
+      ]
+    },
+    {
+      "field_id": "graph_recommendation",
+      "title": "그래프 학습 · 추천 시스템",
+      "papers": [
+        {
+          "number": "00",
+          "title": "DeepWalk: Online Learning of Social Representations",
+          "year": 2014,
+          "primary_url": "https://arxiv.org/abs/1403.6652",
+          "dataset_file": "data/field_curriculum/graph_recommendation.npz",
+          "filename": "00_deepwalk.ipynb"
+        },
+        {
+          "number": "01",
+          "title": "node2vec: Scalable Feature Learning for Networks",
+          "year": 2016,
+          "primary_url": "https://arxiv.org/abs/1607.00653",
+          "dataset_file": "data/field_curriculum/graph_recommendation.npz",
+          "filename": "01_node2vec.ipynb"
+        },
+        {
+          "number": "02",
+          "title": "Semi-Supervised Classification with Graph Convolutional Networks",
+          "year": 2017,
+          "primary_url": "https://arxiv.org/abs/1609.02907",
+          "dataset_file": "data/field_curriculum/graph_recommendation.npz",
+          "filename": "02_gcn.ipynb"
+        },
+        {
+          "number": "03",
+          "title": "Inductive Representation Learning on Large Graphs",
+          "year": 2017,
+          "primary_url": "https://arxiv.org/abs/1706.02216",
+          "dataset_file": "data/field_curriculum/graph_recommendation.npz",
+          "filename": "03_graphsage.ipynb"
+        },
+        {
+          "number": "04",
+          "title": "Graph Attention Networks",
+          "year": 2018,
+          "primary_url": "https://arxiv.org/abs/1710.10903",
+          "dataset_file": "data/field_curriculum/graph_recommendation.npz",
+          "filename": "04_gat.ipynb"
+        },
+        {
+          "number": "05",
+          "title": "Variational Graph Auto-Encoders",
+          "year": 2016,
+          "primary_url": "https://arxiv.org/abs/1611.07308",
+          "dataset_file": "data/field_curriculum/graph_recommendation.npz",
+          "filename": "05_vgae.ipynb"
+        },
+        {
+          "number": "06",
+          "title": "Modeling Relational Data with Graph Convolutional Networks",
+          "year": 2018,
+          "primary_url": "https://arxiv.org/abs/1703.06103",
+          "dataset_file": "data/field_curriculum/graph_recommendation.npz",
+          "filename": "06_rgcn.ipynb"
+        },
+        {
+          "number": "07",
+          "title": "How Powerful are Graph Neural Networks?",
+          "year": 2019,
+          "primary_url": "https://openreview.net/forum?id=ryGs6iA5Km",
+          "dataset_file": "data/field_curriculum/graph_recommendation.npz",
+          "filename": "07_gin.ipynb"
+        },
+        {
+          "number": "08",
+          "title": "Graph Convolutional Neural Networks for Web-Scale Recommender Systems",
+          "year": 2018,
+          "primary_url": "https://arxiv.org/abs/1806.01973",
+          "dataset_file": "data/field_curriculum/graph_recommendation.npz",
+          "filename": "08_pinsage.ipynb"
+        },
+        {
+          "number": "09",
+          "title": "LightGCN: Simplifying and Powering Graph Convolution Network for Recommendation",
+          "year": 2020,
+          "primary_url": "https://arxiv.org/abs/2002.02126",
+          "dataset_file": "data/field_curriculum/graph_recommendation.npz",
+          "filename": "09_lightgcn.ipynb"
+        }
+      ]
+    },
+    {
+      "field_id": "self_supervised_multimodal",
+      "title": "자기지도 학습 · 멀티모달",
+      "papers": [
+        {
+          "number": "00",
+          "title": "Representation Learning with Contrastive Predictive Coding",
+          "year": 2018,
+          "primary_url": "https://arxiv.org/abs/1807.03748",
+          "dataset_file": "data/field_curriculum/multimodal_pairs.npz",
+          "filename": "00_cpc.ipynb"
+        },
+        {
+          "number": "01",
+          "title": "Momentum Contrast for Unsupervised Visual Representation Learning",
+          "year": 2020,
+          "primary_url": "https://arxiv.org/abs/1911.05722",
+          "dataset_file": "data/field_curriculum/multimodal_pairs.npz",
+          "filename": "01_moco.ipynb"
+        },
+        {
+          "number": "02",
+          "title": "A Simple Framework for Contrastive Learning of Visual Representations",
+          "year": 2020,
+          "primary_url": "https://arxiv.org/abs/2002.05709",
+          "dataset_file": "data/field_curriculum/multimodal_pairs.npz",
+          "filename": "02_simclr.ipynb"
+        },
+        {
+          "number": "03",
+          "title": "Bootstrap Your Own Latent: A New Approach to Self-Supervised Learning",
+          "year": 2020,
+          "primary_url": "https://arxiv.org/abs/2006.07733",
+          "dataset_file": "data/field_curriculum/multimodal_pairs.npz",
+          "filename": "03_byol.ipynb"
+        },
+        {
+          "number": "04",
+          "title": "Emerging Properties in Self-Supervised Vision Transformers",
+          "year": 2021,
+          "primary_url": "https://arxiv.org/abs/2104.14294",
+          "dataset_file": "data/field_curriculum/multimodal_pairs.npz",
+          "filename": "04_dino.ipynb"
+        },
+        {
+          "number": "05",
+          "title": "Masked Autoencoders Are Scalable Vision Learners",
+          "year": 2022,
+          "primary_url": "https://arxiv.org/abs/2111.06377",
+          "dataset_file": "data/field_curriculum/multimodal_pairs.npz",
+          "filename": "05_mae.ipynb"
+        },
+        {
+          "number": "06",
+          "title": "Learning Transferable Visual Models From Natural Language Supervision",
+          "year": 2021,
+          "primary_url": "https://arxiv.org/abs/2103.00020",
+          "dataset_file": "data/field_curriculum/multimodal_pairs.npz",
+          "filename": "06_clip.ipynb"
+        },
+        {
+          "number": "07",
+          "title": "Scaling Up Visual and Vision-Language Representation Learning With Noisy Text Supervision",
+          "year": 2021,
+          "primary_url": "https://arxiv.org/abs/2102.05918",
+          "dataset_file": "data/field_curriculum/multimodal_pairs.npz",
+          "filename": "07_align.ipynb"
+        },
+        {
+          "number": "08",
+          "title": "BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation",
+          "year": 2022,
+          "primary_url": "https://arxiv.org/abs/2201.12086",
+          "dataset_file": "data/field_curriculum/multimodal_pairs.npz",
+          "filename": "08_blip.ipynb"
+        },
+        {
+          "number": "09",
+          "title": "Flamingo: a Visual Language Model for Few-Shot Learning",
+          "year": 2022,
+          "primary_url": "https://arxiv.org/abs/2204.14198",
+          "dataset_file": "data/field_curriculum/multimodal_pairs.npz",
+          "filename": "09_flamingo.ipynb"
+        }
+      ]
+    },
+    {
+      "field_id": "distillation_compression",
+      "title": "지식 증류 · 모델 경량화",
+      "papers": [
+        {
+          "number": "00",
+          "title": "Distilling the Knowledge in a Neural Network",
+          "year": 2015,
+          "primary_url": "https://research.google/pubs/distilling-the-knowledge-in-a-neural-network/",
+          "dataset_file": "data/field_curriculum/compression_bench.npz",
+          "filename": "00_knowledge_distillation.ipynb"
+        },
+        {
+          "number": "01",
+          "title": "FitNets: Hints for Thin Deep Nets",
+          "year": 2015,
+          "primary_url": "https://arxiv.org/abs/1412.6550",
+          "dataset_file": "data/field_curriculum/compression_bench.npz",
+          "filename": "01_fitnets.ipynb"
+        },
+        {
+          "number": "02",
+          "title": "Paying More Attention to Attention: Improving the Performance of Convolutional Neural Networks via Attention Transfer",
+          "year": 2017,
+          "primary_url": "https://openreview.net/forum?id=Sks9_ajex",
+          "dataset_file": "data/field_curriculum/compression_bench.npz",
+          "filename": "02_attention_transfer.ipynb"
+        },
+        {
+          "number": "03",
+          "title": "TinyBERT: Distilling BERT for Natural Language Understanding",
+          "year": 2020,
+          "primary_url": "https://aclanthology.org/2020.findings-emnlp.372/",
+          "dataset_file": "data/field_curriculum/compression_bench.npz",
+          "filename": "03_tinybert.ipynb"
+        },
+        {
+          "number": "04",
+          "title": "Deep Compression: Compressing Deep Neural Networks with Pruning, Trained Quantization and Huffman Coding",
+          "year": 2016,
+          "primary_url": "https://arxiv.org/abs/1510.00149",
+          "dataset_file": "data/field_curriculum/compression_bench.npz",
+          "filename": "04_deep_compression.ipynb"
+        },
+        {
+          "number": "05",
+          "title": "The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks",
+          "year": 2019,
+          "primary_url": "https://openreview.net/forum?id=rJl-b3RcF7",
+          "dataset_file": "data/field_curriculum/compression_bench.npz",
+          "filename": "05_lottery_ticket.ipynb"
+        },
+        {
+          "number": "06",
+          "title": "Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference",
+          "year": 2018,
+          "primary_url": "https://openaccess.thecvf.com/content_cvpr_2018/html/Jacob_Quantization_and_Training_CVPR_2018_paper.html",
+          "dataset_file": "data/field_curriculum/compression_bench.npz",
+          "filename": "06_integer_quantization.ipynb"
+        },
+        {
+          "number": "07",
+          "title": "MobileNetV2: Inverted Residuals and Linear Bottlenecks",
+          "year": 2018,
+          "primary_url": "https://openaccess.thecvf.com/content_cvpr_2018/html/Sandler_MobileNetV2_Inverted_Residuals_CVPR_2018_paper.html",
+          "dataset_file": "data/field_curriculum/compression_bench.npz",
+          "filename": "07_mobilenet_v2.ipynb"
+        },
+        {
+          "number": "08",
+          "title": "ShuffleNet V2: Practical Guidelines for Efficient CNN Architecture Design",
+          "year": 2018,
+          "primary_url": "https://openaccess.thecvf.com/content_ECCV_2018/html/Ningning_Light-weight_CNN_Architecture_ECCV_2018_paper.html",
+          "dataset_file": "data/field_curriculum/compression_bench.npz",
+          "filename": "08_shufflenet_v2.ipynb"
+        },
+        {
+          "number": "09",
+          "title": "Once-for-All: Train One Network and Specialize it for Efficient Deployment",
+          "year": 2020,
+          "primary_url": "https://openreview.net/forum?id=HylxE1HKwS",
+          "dataset_file": "data/field_curriculum/compression_bench.npz",
+          "filename": "09_once_for_all.ipynb"
+        }
+      ]
+    }
+  ]
+}

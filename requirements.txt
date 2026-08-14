@@ -1,0 +1,24 @@
+# Common learning/runtime dependencies.
+#
+# Windows users should normally install requirements-windows.txt instead. It
+# adds an explicit CPU-only PyTorch build so that a fresh setup also works on a
+# PC without an NVIDIA GPU. PyTorch is intentionally kept out of this common
+# file because CPU and CUDA wheels use different official package indexes.
+# Version ranges avoid a machine-bound lock while keeping tested major versions.
+
+numpy>=1.26,<3
+pandas>=2.2,<4
+scipy>=1.13,<2
+joblib>=1.4,<2
+scikit-learn>=1.5,<2
+streamlit>=1.40,<2
+jupyterlab>=4.4,<5
+ipykernel>=6.29,<8
+ipywidgets>=8.1,<9
+matplotlib>=3.9,<4
+seaborn>=0.13,<1
+nbformat>=5.10,<6
+nbclient>=0.10,<1
+langchain>=1,<2
+langchain-core>=1,<2
+langchain-text-splitters>=1,<2

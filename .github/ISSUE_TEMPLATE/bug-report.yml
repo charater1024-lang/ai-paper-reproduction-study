@@ -1,0 +1,67 @@
+name: 버그 및 실행 오류
+description: Windows 설치, 실행기, 데이터 또는 실습 오류를 재현 정보와 함께 신고합니다.
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        신고해 주셔서 감사합니다. 비밀키와 개인정보는 로그에서 제거해 주세요.
+
+  - type: input
+    id: lab
+    attributes:
+      label: 실습 또는 파일
+      description: 예) 유명 논문 09, vision/03, Start_Paper_Reproductions.cmd
+      placeholder: 실습 번호나 저장소 상대 경로
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 재현 방법
+      description: 오류가 발생할 때까지 실행한 명령과 동작을 순서대로 적어 주세요.
+      placeholder: |
+        1. .\Install_or_Repair.cmd 실행
+        2. .\Start_Paper_Reproductions.cmd 09 실행
+        3. 첫 번째 셀 실행
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-actual
+    attributes:
+      label: 예상 결과와 실제 결과
+      description: 기대한 동작과 실제로 관찰한 동작을 함께 적어 주세요.
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Windows 및 Python 환경
+      description: Windows 버전, Python 버전, CPU/GPU, PyTorch/CUDA 인식 여부를 적어 주세요.
+      placeholder: |
+        Windows 11 24H2
+        Python 3.12.x
+        NVIDIA RTX 3080 / torch.cuda.is_available() = True
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 오류 로그
+      description: 가능하면 처음부터 끝까지 붙여 넣어 주세요. 이미지보다 텍스트가 검색에 유리합니다.
+      render: shell
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: 공개 전 확인
+      options:
+        - label: 로그에서 API 키, 토큰, 이메일, 사용자 문서의 내용을 제거했습니다.
+          required: true

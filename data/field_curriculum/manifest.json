@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "seed": 20260814,
+  "license": "CC0-1.0",
+  "provenance": "Fully synthetic; generated locally by tools/generate_field_datasets.py",
+  "files": [
+    {
+      "path": "vision_shapes.npz",
+      "bytes": 421174,
+      "sha256": "9224412c17d8970dd06aa78941f907b0672133b24a02a5d62a2b2696e2926fdd"
+    },
+    {
+      "path": "nlp_corpus.json",
+      "bytes": 22424,
+      "sha256": "35cdfa5f83c7e02f105df8d19a6d05c58b706d232b47943166b8d5959dad7075"
+    },
+    {
+      "path": "generative_samples.npz",
+      "bytes": 57252,
+      "sha256": "80e31c4b75507bd021557ebf061baff5eff0874fe7e44fc54630e11df745113f"
+    },
+    {
+      "path": "gridworld.json",
+      "bytes": 3821,
+      "sha256": "33d0f4bc2d6f1b4a867036a6b17f3889448b9673da5851b18369a577b31872ee"
+    },
+    {
+      "path": "graph_recommendation.npz",
+      "bytes": 7719,
+      "sha256": "6ec0f2edab98767e6eff7ca5c9a7b0ec3b90df4a4d6d3c4272e311abe64c0924"
+    },
+    {
+      "path": "multimodal_pairs.npz",
+      "bytes": 85623,
+      "sha256": "ee830019fcb01bfc6119eaa8d2b6281760da4f5b4b5327b9d4464b7d8c8ed743"
+    },
+    {
+      "path": "compression_bench.npz",
+      "bytes": 618014,
+      "sha256": "3acf7105f292da0b1e2610ff2db2a1cb4ce460ce75947d9f8d546acc287db8bb"
+    }
+  ]
+}
