@@ -12,6 +12,7 @@ from pathlib import Path
 from textwrap import dedent
 
 import nbformat
+from notebook_api_explanations import annotate_pair
 
 ROOT = Path(__file__).resolve().parents[1]
 EXERCISES = ROOT / "notebooks" / "exercises"
@@ -66,6 +67,8 @@ def build_pair(filename: str, title: str, specs: list[tuple[str, ...]]) -> None:
             }
         )
         notebooks[role] = notebook
+
+    annotate_pair(notebooks["exercise"], notebooks["solution"])
 
     for role, notebook in notebooks.items():
         destination = (EXERCISES if role == "exercise" else SOLUTIONS) / filename

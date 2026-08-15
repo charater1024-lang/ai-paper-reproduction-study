@@ -1,4 +1,9 @@
-"""Create exercise/solution pairs from the original 00-12 curriculum notebooks."""
+"""Create exercise/solution pairs from the source 00-12 curriculum notebooks.
+
+This generator replaces the matching files under ``notebooks/exercises`` and
+``notebooks/solutions``.  Learners must copy any answers they want to keep
+before rebuilding; otherwise their edits in an exercise notebook are lost.
+"""
 
 from __future__ import annotations
 
@@ -7,6 +12,7 @@ from pathlib import Path
 
 import nbformat
 from nbformat.v4 import new_markdown_cell
+from notebook_api_explanations import annotate_notebook
 
 ROOT = Path(__file__).resolve().parents[1]
 NOTEBOOKS = ROOT / "notebooks"
@@ -68,7 +74,29 @@ def clear_outputs(notebook) -> None:
 def build_pair(source_path: Path) -> tuple[Path, Path, int]:
     original = nbformat.read(source_path, as_version=4)
     clear_outputs(original)
-    targets = choose_targets(original)
+
+    # Choose challenges and capture their lesson headings before API-only
+    # Markdown is inserted.  Otherwise an API signature could accidentally
+    # become the TODO title when two code cells were originally consecutive.
+    target_specs: list[tuple[int, str]] = []
+    for original_index in choose_targets(original):
+        code_ordinal = (
+            sum(
+                cell.cell_type == "code"
+                for cell in original.cells[: original_index + 1]
+            )
+            - 1
+        )
+        target_specs.append(
+            (code_ordinal, previous_heading(original.cells, original_index))
+        )
+
+    # API notes must be derived from the intact source code before the exercise
+    # cells are replaced with TODO scaffolds.  Deep-copying this annotated
+    # in-memory notebook gives both sides identical explanations; it does not
+    # modify the root source notebook on disk.  The writes below still replace
+    # learner-edited exercise files, as documented in the module warning.
+    annotate_notebook(original)
 
     exercise = copy.deepcopy(original)
     solution = copy.deepcopy(original)
@@ -97,9 +125,15 @@ def build_pair(source_path: Path) -> tuple[Path, Path, int]:
     )
 
     # Banner insertion shifts every original cell by one in both notebooks.
-    for challenge_number, original_index in enumerate(targets, start=1):
+    code_indices = [
+        index for index, cell in enumerate(original.cells) if cell.cell_type == "code"
+    ]
+    for challenge_number, (code_ordinal, title) in enumerate(
+        target_specs,
+        start=1,
+    ):
+        original_index = code_indices[code_ordinal]
         index = original_index + 1
-        title = previous_heading(original.cells, original_index)
         exercise.cells[index].source = f"""# TODO {challenge_number}: {title}
 # 오른쪽 정답 창의 같은 셀을 참고하되, 먼저 아래 구현을 직접 작성하세요.
 # 1) 입력과 출력의 shape/dtype을 종이에 적습니다.
@@ -114,12 +148,12 @@ raise NotImplementedError("{number}번 실습의 TODO {challenge_number}을 완�
     exercise.metadata["paired_learning"] = {
         "role": "exercise",
         "pair": source_path.name,
-        "hidden_cell_count": len(targets),
+        "hidden_cell_count": len(target_specs),
     }
     solution.metadata["paired_learning"] = {
         "role": "solution",
         "pair": source_path.name,
-        "hidden_cell_count": len(targets),
+        "hidden_cell_count": len(target_specs),
     }
 
     EXERCISES.mkdir(parents=True, exist_ok=True)
@@ -128,7 +162,7 @@ raise NotImplementedError("{number}번 실습의 TODO {challenge_number}을 완�
     solution_path = SOLUTIONS / source_path.name
     nbformat.write(exercise, exercise_path)
     nbformat.write(solution, solution_path)
-    return exercise_path, solution_path, len(targets)
+    return exercise_path, solution_path, len(target_specs)
 
 
 def main() -> None:

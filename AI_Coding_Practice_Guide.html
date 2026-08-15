@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 코딩 실습 가이드</title>
+  <style>
+    :root {
+      --navy: #163a5f; --blue: #216ba5; --teal: #008b82; --amber: #e59a17;
+      --ink: #172b3a; --muted: #536273; --line: #d8e0e8; --canvas: #f4f7fb;
+      --blue-pale: #eaf3fb; --teal-pale: #e5f7f5; --amber-pale: #fff5dd;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--canvas); font-family: "Malgun Gothic", "Segoe UI", sans-serif; line-height: 1.7; }
+    .wrap { width: min(1100px, 100%); margin: 0 auto; }
+    .hero { color: #fff; background: radial-gradient(circle at 88% 15%, rgba(39,150,170,.55), transparent 27rem), linear-gradient(135deg, #0d2947, var(--navy)); padding: 48px 24px 56px; }
+    .eyebrow { display: inline-block; margin-bottom: 12px; color: #bfe7ff; font-size: .82rem; font-weight: 700; letter-spacing: .12em; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 760px; margin-bottom: 14px; font-size: clamp(2rem, 5vw, 3.6rem); line-height: 1.2; }
+    h2 { margin-bottom: 8px; color: var(--navy); font-size: clamp(1.45rem, 3vw, 2rem); line-height: 1.35; }
+    h3 { margin-bottom: 8px; color: var(--navy); font-size: 1.06rem; line-height: 1.45; }
+    .lead { max-width: 760px; color: #e8f3fc; font-size: 1.1rem; }
+    .section-lead { max-width: 800px; color: var(--muted); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 9px 16px; border: 1px solid transparent; border-radius: 10px; color: #fff; background: var(--blue); font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; }
+    .button:hover { filter: brightness(1.08); }
+    .button.secondary { border-color: rgba(255,255,255,.45); background: transparent; }
+    .button.light { color: var(--navy); background: #fff; }
+    .nav { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--line); background: rgba(255,255,255,.96); backdrop-filter: blur(8px); }
+    .nav .wrap { display: flex; gap: 18px; overflow-x: auto; padding: 11px 24px; }
+    .nav a { color: var(--muted); font-size: .9rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
+    .nav a:hover { color: var(--blue); }
+    main { padding: 34px 24px 64px; }
+    section { margin: 0 0 44px; }
+    .grid { display: grid; gap: 16px; }
+    .three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .card { padding: 20px; border: 1px solid var(--line); border-radius: 14px; background: #fff; box-shadow: 0 6px 18px rgba(22,58,95,.05); }
+    .blue { background: var(--blue-pale); }
+    .teal { background: var(--teal-pale); }
+    .amber { background: var(--amber-pale); }
+    .card p:last-child { margin-bottom: 0; }
+    .tag { display: inline-block; margin-bottom: 8px; padding: 2px 8px; border-radius: 999px; color: var(--blue); background: rgba(33,107,165,.12); font-size: .78rem; font-weight: 700; }
+    .callout { display: grid; grid-template-columns: auto 1fr; gap: 14px; margin: 22px 0; padding: 18px; border-left: 5px solid var(--teal); border-radius: 0 12px 12px 0; background: var(--teal-pale); }
+    .callout b { color: var(--teal); }
+    .steps { counter-reset: step; display: grid; gap: 0; }
+    .step { position: relative; display: grid; grid-template-columns: 42px 1fr; gap: 14px; padding: 0 0 20px; }
+    .step::before { content: counter(step); counter-increment: step; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: #fff; background: var(--blue); font-weight: 800; }
+    .step:not(:last-child)::after { content: ""; position: absolute; left: 16px; top: 37px; width: 2px; height: calc(100% - 23px); background: #b9cee2; }
+    .step h3 { margin: 0 0 3px; font-size: 1rem; }
+    .step p { margin: 0; color: var(--muted); }
+    .command { position: relative; margin: 13px 0; padding: 13px 104px 13px 15px; overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; color: #1f3248; background: #f6f8fb; font-family: Consolas, "Courier New", monospace; font-size: .88rem; white-space: pre; }
+    .copy { position: absolute; top: 7px; right: 7px; min-height: 32px; padding: 5px 9px; border: 1px solid #b8cadc; border-radius: 7px; color: var(--navy); background: #fff; font: inherit; font-size: .76rem; font-weight: 700; cursor: pointer; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+    table { width: 100%; min-width: 700px; border-collapse: collapse; }
+    th, td { padding: 13px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: #fff; background: var(--navy); font-size: .88rem; }
+    td { color: var(--muted); font-size: .91rem; }
+    tr:last-child td { border-bottom: 0; }
+    .project { position: relative; overflow: hidden; }
+    .project::after { content: attr(data-number); position: absolute; right: 12px; top: -12px; color: rgba(22,58,95,.08); font-size: 5.2rem; font-weight: 800; line-height: 1; }
+    .project > * { position: relative; z-index: 1; }
+    .project ul { margin: 8px 0 0; padding-left: 19px; color: var(--muted); }
+    footer { padding: 25px 24px 36px; color: #cbd9e7; background: #0d2947; }
+    footer p { margin: 0; }
+    @media (max-width: 780px) {
+      .three, .two { grid-template-columns: 1fr; }
+      .hero { padding-top: 38px; }
+      main { padding-inline: 18px; }
+      .nav .wrap { padding-inline: 18px; }
+    }
+    @media print {
+      .nav, .hero-actions, .copy { display: none; }
+      body { background: #fff; }
+      .hero { padding: 24px; }
+      main { padding: 18px; }
+      .card { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">AI CODING PRACTICE CENTER</span>
+      <h1>읽고, 직접 치고,<br>실행하며 배우는 AI 코딩</h1>
+      <p class="lead">Markdown 문서를 찾아다니지 않아도 됩니다. 이 화면은 실습 시작점, 학습 순서, 프로젝트 따라치기 루프를 한 눈에 보여 주는 오프라인 학습 안내서입니다.</p>
+      <div class="hero-actions">
+        <a class="button light" href="#start">지금 시작하기</a>
+        <a class="button secondary" href="AI_Coding_Practice_Guide.pdf">PDF로 읽기</a>
+        <a class="button secondary" href="projects/nlp/Typing_Practice_Workbook.html">NLP 타이핑 워크북</a>
+        <a class="button secondary" href="AI_Korean_Paper_Notes.html">상세 한국어 논문 해설</a>
+        <a class="button secondary" href="AI_Function_Glossary.html">함수·API 한국어 사전</a>
+      </div>
+    </div>
+  </header>
+  <nav class="nav" aria-label="가이드 탐색">
+    <div class="wrap">
+      <a href="#start">처음 시작</a>
+      <a href="#tracks">학습 경로</a>
+      <a href="#typing">직접 타이핑</a>
+      <a href="#projects">NLP 프로젝트</a>
+      <a href="#troubleshoot">문제 해결</a>
+    </div>
+  </nav>
+  <main class="wrap">
+    <section id="start">
+      <h2>처음에는 세 번만 클릭하세요</h2>
+      <p class="section-lead">바탕화면의 <b>AI 코딩 실습 센터</b>를 열면 모든 기능에 접근할 수 있습니다. 포터블 패키지라 처음 한 번은 환경 준비가 필요합니다.</p>
+      <div class="grid three">
+        <article class="card blue"><span class="tag">01 - 환경 관리</span><h3>설치 또는 복구</h3><p>Python 3.12, 가상환경, JupyterLab과 실습 패키지를 준비합니다. 처음 한 번은 인터넷 연결이 필요합니다.</p></article>
+        <article class="card teal"><span class="tag">02 - 기준점 만들기</span><h3>전체 환경 점검</h3><p>테스트, 노트북 구조, 실행기를 확인합니다. 설치 후 한 번 통과시켜 두면 이후 오류를 구분하기 쉽습니다.</p></article>
+        <article class="card amber"><span class="tag">03 - 첫 실습</span><h3>기본 AI 커리큘럼 00</h3><p>JupyterLab과 폴더 구조를 먼저 익힙니다. 이후 01부터 순서대로 확장하면 됩니다.</p></article>
+      </div>
+      <aside class="callout"><b>핵심</b><span>문서는 이 브라우저 가이드나 PDF로 읽고, VS Code는 <b>직접 코드를 타이핑할 때만</b> 사용하세요.</span></aside>
+    </section>
+    <section id="tracks">
+      <h2>목표에 맞는 학습 경로를 고르세요</h2>
+      <p class="section-lead">모두를 순서대로 끝낼 필요는 없습니다. 지금 필요한 감각에 맞는 길 하나를 선택하고, 완료 경험을 쌓은 뒤 옆 경로로 넓히면 됩니다.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>경로</th><th>언제 고를까</th><th>시작점</th><th>얻는 감각</th></tr></thead>
+          <tbody>
+            <tr><td><b>기본 AI 커리큘럼</b></td><td>Python부터 PyTorch, RAG까지 순서를 만들고 싶을 때</td><td>00 - 환경과 JupyterLab</td><td>데이터, 텐서, 학습 루프, 검색을 연결하는 감각</td></tr>
+            <tr><td><b>대표 논문 20편</b></td><td>핵심 아이디어의 변천을 빠르게 훑고 싶을 때</td><td>00 - LeNet-5</td><td>논문 주장과 코드 구조를 대응시키는 감각</td></tr>
+            <tr><td><b>분야별 논문 70편</b></td><td>한 분야를 깊게 파고들고 싶을 때</td><td>관심 분야 00</td><td>반복되는 구현 패턴과 실험 설계 감각</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section id="typing">
+      <h2>매일의 직접 타이핑 루프</h2>
+      <p class="section-lead">정답을 복사하는 대신 작은 단위를 직접 쓰고 즉시 실행하세요. 한 번의 실패가 다음 문제에서도 재사용할 수 있는 감각이 됩니다.</p>
+      <div class="grid two">
+        <div class="card"><div class="steps">
+          <div class="step"><div><h3>문제를 한 문장으로 요약</h3><p>TODO 앞 설명에서 입력, 출력, 실패 조건을 먼저 읽습니다.</p></div></div>
+          <div class="step"><div><h3>10-20줄을 직접 입력</h3><p>함수 하나 또는 작은 클래스를 쓰고, 실행 가능한 첫 버전을 목표로 합니다.</p></div></div>
+          <div class="step"><div><h3>즉시 실행</h3><p>starter.py나 노트북 셀을 실행해 오류, shape, metric을 확인합니다.</p></div></div>
+        </div></div>
+        <div class="card"><div class="steps">
+          <div class="step"><div><h3>실패를 한 줄로 기록</h3><p>어떤 입력에서 왜 실패했는지 적고, 다음 수정은 한 가지만 정합니다.</p></div></div>
+          <div class="step"><div><h3>같은 함수만 비교</h3><p>막힌 부분이 있을 때만 solution.py의 같은 함수와 비교합니다.</p></div></div>
+          <div class="step"><div><h3>변수 하나 바꿔 보기</h3><p>seed, top-k, threshold, batch size 중 하나를 바꾸고 결과를 설명합니다.</p></div></div>
+        </div></div>
+      </div>
+      <div class="command">가설: | 내가 직접 쓴 코드: | 실행 결과 또는 오류: | 다음에 바꿀 한 가지:<button class="copy" data-copy="가설:&#10;내가 직접 쓴 코드:&#10;실행 결과 또는 오류:&#10;다음에 바꿀 한 가지:">복사</button></div>
+    </section>
+    <section id="projects">
+      <h2>NLP 프로젝트 - 직접 만드는 여섯 단계</h2>
+      <p class="section-lead">허브의 <b>도구와 자료</b> 탭에서 타이핑 워크북을 열고 프로젝트를 고르세요. 각 프로젝트의 <code>starter.py</code>를 직접 완성한 뒤, 정말 막힌 함수만 <code>solution.py</code>와 비교합니다.</p>
+      <div class="grid three">
+        <article class="card project blue" data-number="01"><h3>텍스트 전처리</h3><p>정규화, 토큰 경계, 데이터 계약을 직접 구현합니다.</p><ul><li>입력 예시를 손으로 적기</li><li>예외 조건까지 실행하기</li></ul></article>
+        <article class="card project teal" data-number="02"><h3>의도 분류</h3><p>TF-IDF 기준선과 평가 지표를 만듭니다.</p><ul><li>accuracy와 macro F1 비교</li><li>오분류 한 건 설명하기</li></ul></article>
+        <article class="card project amber" data-number="03"><h3>의미 검색</h3><p>벡터화, 유사도, top-k 검색을 조립합니다.</p><ul><li>검색 점수와 관련성 비교</li><li>top-k 변화 확인</li></ul></article>
+        <article class="card project blue" data-number="04"><h3>프레임워크 없는 RAG</h3><p>문서 로드, 검색, grounded prompt를 직접 잇습니다.</p><ul><li>근거 문서 먼저 보기</li><li>보류 기준 적기</li></ul></article>
+        <article class="card project teal" data-number="05"><h3>LangChain RAG</h3><p>문서, 청크, retriever 경계를 의식하며 조립합니다.</p><ul><li>metadata 유지하기</li><li>로컬 fallback 확인</li></ul></article>
+        <article class="card project amber" data-number="06"><h3>RAG 평가</h3><p>Hit@k, Recall@k, MRR, coverage를 분리해 계산합니다.</p><ul><li>분모를 먼저 적기</li><li>실패 사례 찾아보기</li></ul></article>
+      </div>
+      <p style="margin-top:18px"><a class="button" href="projects/nlp/Typing_Practice_Workbook.html">프로젝트별 타이핑 워크북 열기</a></p>
+    </section>
+    <section id="troubleshoot">
+      <h2>막혔을 때는 이 순서로 확인하세요</h2>
+      <div class="grid three">
+        <article class="card"><h3>실습 버튼이 실행되지 않음</h3><p>환경 관리 탭에서 상태가 준비 완료인지 확인합니다. 아니라면 설치 또는 복구 후 전체 환경 점검을 실행합니다.</p></article>
+        <article class="card"><h3>starter.py가 TODO에서 멈춤</h3><p>가장 위의 TODO 번호 하나만 선택해 구현하세요. 전부를 한 번에 해결하려 하지 않습니다.</p></article>
+        <article class="card"><h3>metric 또는 출력이 이상함</h3><p>입력 예시 하나, shape, label 분포, seed를 먼저 출력하고 조건 하나만 바꿉니다.</p></article>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap"><p>오늘의 목표는 많이 보는 것이 아니라, 한 가지를 직접 쓰고 실행해 왜 동작하는지 설명할 수 있게 되는 것입니다.</p></div></footer>
+  <script>
+    async function copyText(text, button) {
+      try { await navigator.clipboard.writeText(text); }
+      catch (_) { const area = document.createElement("textarea"); area.value = text; document.body.appendChild(area); area.select(); document.execCommand("copy"); area.remove(); }
+      const original = button.textContent; button.textContent = "복사됨";
+      setTimeout(() => { button.textContent = original; }, 1300);
+    }
+    document.querySelectorAll(".copy").forEach((button) => button.addEventListener("click", () => copyText(button.dataset.copy, button)));
+  </script>
+</body>
+</html>

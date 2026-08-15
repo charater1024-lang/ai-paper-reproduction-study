@@ -42,6 +42,10 @@ def format_notebooks(paths: Iterable[Path]) -> None:
         capture_output=True,
         text=True,
         encoding="utf-8",
+        # Ruff can inherit a legacy Windows console encoding when this project
+        # lives in a Korean-named folder.  Formatting still succeeds; preserve
+        # any diagnostic text without letting decoding abort the builder.
+        errors="replace",
     )
     if completed.returncode != 0:
         details = (completed.stdout + completed.stderr).strip()

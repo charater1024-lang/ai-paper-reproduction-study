@@ -14,6 +14,7 @@ from pathlib import Path
 from textwrap import dedent
 
 import nbformat as nbf
+from notebook_api_explanations import annotate_pair
 
 ROOT = Path(__file__).resolve().parents[1]
 EXERCISES = ROOT / "notebooks" / "exercises"
@@ -53,12 +54,24 @@ class PairNotebook:
             "language_info": {"name": "python", "version": "3.13"},
             "paired_notebook": {"exercise": True, "solution": True},
         }
-        for folder, cells, role in (
-            (EXERCISES, self.exercise_cells, "exercise"),
-            (SOLUTIONS, self.solution_cells, "solution"),
+        notebooks = {
+            "exercise": nbf.v4.new_notebook(
+                cells=self.exercise_cells,
+                metadata={**metadata, "role": "exercise"},
+            ),
+            "solution": nbf.v4.new_notebook(
+                cells=self.solution_cells,
+                metadata={**metadata, "role": "solution"},
+            ),
+        }
+        annotate_pair(notebooks["exercise"], notebooks["solution"])
+
+        for folder, role in (
+            (EXERCISES, "exercise"),
+            (SOLUTIONS, "solution"),
         ):
             folder.mkdir(parents=True, exist_ok=True)
-            nb = nbf.v4.new_notebook(cells=cells, metadata={**metadata, "role": role})
+            nb = notebooks[role]
             nbf.validate(nb)
             nbf.write(nb, folder / filename)
 

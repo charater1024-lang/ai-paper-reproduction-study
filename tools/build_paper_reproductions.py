@@ -6,6 +6,7 @@ import argparse
 from pathlib import Path
 
 import nbformat
+from notebook_api_explanations import append_api_notes
 from notebook_contracts import (
     exercise_contract_source,
     merge_mappings,
@@ -342,6 +343,7 @@ def notebook_cells(spec: PaperSpec, role: str) -> list[nbformat.NotebookNode]:
     code_ordinal = 0
     substantive_index = 0
     shape_hint = portfolio_shape(spec.number)
+    api_seen: set[str] = set()
     for cell in spec.cells:
         if cell.cell_type == "code":
             code_ordinal += 1
@@ -356,18 +358,14 @@ def notebook_cells(spec: PaperSpec, role: str) -> list[nbformat.NotebookNode]:
                     substantive_index,
                 )
                 substantive_index += 1
-            sources.append(
-                (
-                    "markdown",
-                    stage_markdown(
-                        ordinal=code_ordinal,
-                        kind=kind,
-                        mapping=mapping,
-                        shape_hint=shape_hint,
-                    ),
-                    ("stage-contract", kind),
-                )
+            stage_note = stage_markdown(
+                ordinal=code_ordinal,
+                kind=kind,
+                mapping=mapping,
+                shape_hint=shape_hint,
             )
+            stage_note = append_api_notes(stage_note, cell.solution, api_seen)
+            sources.append(("markdown", stage_note, ("stage-contract", kind)))
         if role == "exercise" and cell.cell_type == "code":
             paper_location = mapping[0] if mapping is not None else "setup 예외"
             source = exercise_contract_source(

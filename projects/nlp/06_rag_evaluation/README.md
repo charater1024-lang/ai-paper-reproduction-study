@@ -10,6 +10,19 @@
 때문입니다. 먼저 검색과 보류를 안정화한 뒤 별도의 groundedness, 사실성, 인용 정확도 평가를
 추가하는 순서가 좋습니다.
 
+## 공통 Python 실행 뼈대
+
+`starter.py`와 `solution.py`를 읽기 전에 다음 공통 장치를 확인하세요.
+
+- `Path(__file__)`은 현재 작업 폴더가 아니라 실행 파일을 기준으로 저장소 루트를 찾습니다.
+- `sys.path.insert(0, ...)`는 로컬 `src`를 import 검색 경로 맨 앞에 둡니다.
+- `@dataclass(frozen=True, slots=True)`는 설정 필드의 재할당과 임의 속성 추가를 막습니다.
+- `argparse`의 `type`·`default`·`action`은 명령줄 입력을 해석하고, `parse_args()`는
+  그 결과를 `Namespace`로 반환합니다.
+
+각 함수의 입력·반환값·주의점과 코드 흐름은
+[함수와 Python 실행 뼈대 읽기 가이드](../../../docs/FUNCTION_API_GUIDE.md)에 정리했습니다.
+
 ## 학습 목표
 
 - answerable 질문과 no-answer 질문을 같은 방식으로 채점하면 안 되는 이유를 설명한다.
