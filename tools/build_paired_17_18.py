@@ -11,6 +11,7 @@ from pathlib import Path
 from textwrap import dedent
 
 import nbformat as nbf
+from notebook_api_explanations import annotate_pair
 
 ROOT = Path(__file__).resolve().parents[1]
 EXERCISES = ROOT / "notebooks" / "exercises"
@@ -56,6 +57,7 @@ def write_pair(filename: str, specs: list[tuple[str, str, str]]) -> None:
             else:
                 notebook.cells.append(nbf.v4.new_code_cell(source, id=cell_id))
         notebooks.append(notebook)
+    annotate_pair(notebooks[0], notebooks[1])
     nbf.write(notebooks[0], EXERCISES / filename)
     nbf.write(notebooks[1], SOLUTIONS / filename)
 

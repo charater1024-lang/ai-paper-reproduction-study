@@ -22,6 +22,8 @@ if errorlevel 1 goto :failed
 if errorlevel 1 goto :failed
 ".venv\Scripts\python.exe" -X utf8 tools\validate_portfolio_quality.py
 if errorlevel 1 goto :failed
+".venv\Scripts\python.exe" -X utf8 tools\validate_api_explanations.py
+if errorlevel 1 goto :failed
 ".venv\Scripts\python.exe" tools\start_paired_lab.py 13 --smoke-test
 if errorlevel 1 goto :failed
 ".venv\Scripts\python.exe" tools\start_paired_lab.py --paper 09 --smoke-test

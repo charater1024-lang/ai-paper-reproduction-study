@@ -8,6 +8,12 @@
 assert로 검증** 순서로 진행합니다. 처음부터 정답을 외우는 대신 shape, dtype, loss, gradient,
 오류 사례를 설명하는 것을 목표로 합니다.
 
+중요한 NumPy·PyTorch·pandas·scikit-learn 함수는 각 노트북에서 처음 사용하는 코드 셀 바로
+위의 접이식 **함수·API·수식 해설**에서 signature, 입력·반환값, 사용 이유, 관련 수식과
+기호, 수식과 코드의 대응, shape와 주의점을 확인할 수 있습니다. API가 많은 셀은 필요한
+함수만 두 번째 접기에서 열면 됩니다. 전체 주제별 색인은
+[함수·API 한국어 학습 가이드](../docs/FUNCTION_API_GUIDE.md)를 참고하세요.
+
 노트북보다 작은 독립 실행 파일로 NLP를 먼저 연습하고 싶다면
 [6개 NLP 실습 프로젝트](../projects/nlp/README.md)를 01번부터 진행하세요. 전처리·분류·의미
 검색·직접 구현 RAG·LangChain RAG·평가가 `starter.py`/`solution.py` 쌍으로 구성되어 있습니다.

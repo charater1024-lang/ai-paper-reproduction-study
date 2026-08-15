@@ -1,4 +1,9 @@
-"""Rebuild, normalize and strictly validate all 00-22 exercise/solution pairs."""
+"""Rebuild, normalize and strictly validate all 00-22 exercise/solution pairs.
+
+The source of truth for 00-04 is ``tools/build_notebooks_00_04.py``.  Notebooks
+05-12 are maintained directly under ``notebooks/`` and feed the legacy pair
+builder together with the generated 00-04 files.
+"""
 
 from __future__ import annotations
 
@@ -20,7 +25,11 @@ VALIDATOR = "tools/validate_paired_notebooks.py"
 
 
 def original_notebooks() -> list[Path]:
-    """Return the hand-authored 00-12 notebooks used by the legacy pair builder."""
+    """Return 00-12 inputs used by the legacy pair builder.
+
+    Files 00-04 are generated artifacts of ``build_notebooks_00_04.py``;
+    files 05-12 are maintained directly as notebooks.
+    """
 
     return sorted((ROOT / "notebooks").glob("[0-1][0-9]_*.ipynb"))
 
@@ -36,7 +45,11 @@ def paired_notebooks() -> list[Path]:
 
 
 def main() -> None:
-    print("\n=== format original notebooks ===", flush=True)
+    print(
+        "\n=== format 00-12 pair inputs "
+        "(00-04 generator-backed, 05-12 notebook-backed) ===",
+        flush=True,
+    )
     format_notebooks(original_notebooks())
 
     for relative_path in BUILD_STEPS:

@@ -29,8 +29,14 @@ benchmark를 그대로 재현한 것이 아니라, 핵심 메커니즘과 주장
 **교육용 축소 재현**입니다.
 
 **바로가기:** [30초 시작](#windows-30초-시작) · [학습 트랙](#나에게-맞는-트랙-고르기) ·
-[한국어 논문 요약](docs/paper_reading_notes/README.md) · [데이터](data/README.md) ·
-[Windows 설치](docs/WINDOWS_SETUP.md) · [GitHub 게시](docs/GITHUB_PUBLISHING_WINDOWS.md) ·
+[AI 코딩 실습 센터](AI_Coding_Practice_Center.ps1) ·
+[브라우저 학습 가이드](AI_Coding_Practice_Guide.html) ·
+[상세 한국어 논문 해설](AI_Korean_Paper_Notes.html) ·
+[함수·API 사전](AI_Function_Glossary.html) ·
+[한국어 논문 원본 노트](docs/paper_reading_notes/README.md) ·
+[함수·API 해설](docs/FUNCTION_API_GUIDE.md) · [데이터](data/README.md) ·
+[Windows 설치](docs/WINDOWS_SETUP.md) · [휴대용 ZIP](docs/PORTABLE_ZIP.md) ·
+[GitHub 게시](docs/GITHUB_PUBLISHING_WINDOWS.md) ·
 [기여 가이드](CONTRIBUTING.md)
 
 ## Windows 30초 시작
@@ -48,6 +54,8 @@ GitHub에서 Clone하거나 ZIP을 풀어 저장소 루트로 이동한 뒤 다�
 NVIDIA GPU를 사용하려면 기본 설치 후 `Install_GPU_PyTorch.cmd`를 한 번 실행하세요.
 Windows 환경 재현은 [`requirements-windows.txt`](requirements-windows.txt), 공통 패키지는
 [`requirements.txt`](requirements.txt)에 정리되어 있습니다.
+다른 PC에 최신 작업본 전체를 한 파일로 옮기는 방법은
+[Windows 휴대용 ZIP 안내](docs/PORTABLE_ZIP.md)를 참고하세요.
 
 ## 현재 포함된 학습 자료
 
@@ -90,9 +98,26 @@ Windows에서는 저장소 루트에서 다음 순서로 실행합니다.
 .\Start_Paired_Learning.cmd 00
 ```
 
-바탕화면에서는 **AI 코딩연습 - 기본 실습과 정답** 바로가기를 사용합니다. 과거 이름인
-`AI 코딩연습 - 실습+정답 2창`이나 `AI 코딩연습 JupyterLab`이 오래된 폴더를 가리키면
-사용하지 말고 바로가기를 다시 만드세요.
+### 하나의 바탕화면 아이콘으로 시작하기
+
+설치가 끝난 뒤 아래 명령을 한 번 실행하면 Windows Desktop에 **`AI 코딩 실습 센터`**
+아이콘 하나가 만들어집니다. 이 허브에서 설치·환경 점검·JupyterLab·기본/논문/분야별
+실습·NLP 타이핑 랩·읽기 자료·학습 폴더를 모두 열 수 있습니다.
+
+```powershell
+# Windows가 등록한 기본 Desktop에 단일 허브 바로가기 생성·업데이트
+powershell -ExecutionPolicy Bypass -File .\Create_AI_Coding_Lab_Shortcut.ps1
+
+# 바탕화면 바로가기 없이 허브를 바로 열 때
+.\Start_AI_Coding_Lab.cmd
+```
+
+허브는 Python이 아직 설치되지 않은 상태에서도 열립니다. 이 경우 먼저 `설치 또는 복구`를
+선택하고, 설치가 끝난 뒤 실습 버튼을 사용하세요.
+
+### 예전 개별 바로가기 (선택)
+
+기존의 여러 개 바로가기를 계속 쓰고 싶을 때만 아래 스크립트를 사용하세요.
 
 ```powershell
 # Windows가 등록한 기본 Desktop에 11개 바로가기 생성·업데이트
@@ -110,6 +135,23 @@ powershell -ExecutionPolicy Bypass -File .\tools\create_learning_shortcuts.ps1 `
 - `AI 논문 실습 - 전체 분야`
 - 7개 분야별 바로가기
 - `AI 논문 한국어 요약`
+
+## 눈으로 읽는 오프라인 학습 자료
+
+Markdown 파일을 편집기로 열지 않아도 되는 읽기 전용 자료를 저장소 루트에 함께 둡니다.
+모두 인터넷이나 별도 서버 없이 브라우저에서 열립니다.
+
+| 자료 | 열기 | 용도 |
+|---|---|---|
+| 브라우저 학습 가이드 | [AI_Coding_Practice_Guide.html](AI_Coding_Practice_Guide.html) | 과정 전체 흐름, 오늘 할 일, 주요 문서로 이동 |
+| 인쇄용 가이드 | [AI_Coding_Practice_Guide.pdf](AI_Coding_Practice_Guide.pdf) | 화면 밖에서 읽거나 인쇄할 때 |
+| 상세 한국어 논문 해설 | [AI_Korean_Paper_Notes.html](AI_Korean_Paper_Notes.html) | 핵심 70편을 분야·논문별로 읽고, 상세 배경지식 카드를 펼칠 때 |
+| 함수·API 한국어 사전 | [AI_Function_Glossary.html](AI_Function_Glossary.html) | 함수의 역할·입력·반환·shape·주의점을 인터넷 검색 없이 확인할 때 |
+| NLP 타이핑 워크북 | [projects/nlp/Typing_Practice_Workbook.html](projects/nlp/Typing_Practice_Workbook.html) | starter 코드를 직접 따라 치며 6개 프로젝트를 진행할 때 |
+
+논문 리더의 **`상세 배경지식`**을 열면, 원문에 있던 짧은 선수지식 목록 대신 논문에 필요한
+개념을 먼저 읽을 순서와 함께 보여 줍니다. 각 카드는 `무엇인가 → 직관 → 왜 이 논문에
+필요한가 → 코드에서 만나는 곳 → 자주 헷갈리는 점`으로 구성되어 있습니다.
 
 ## 나에게 맞는 트랙 고르기
 
@@ -156,6 +198,30 @@ RAG와 통합 프로젝트를 한 번씩 경험합니다.
 
 정답 코드와 다르게 구현했더라도 셀의 계약, shape, assertion과 학습 목표를 만족하면 유효한
 풀이일 수 있습니다. 정답을 복사하는 것보다 왜 작동하는지 설명하는 것이 완료 기준입니다.
+
+### 코드 셀의 함수·API 해설 읽는 법
+
+각 노트북은 중요한 라이브러리 함수가 **처음 등장하는 코드 셀 바로 위**에 접이식
+`이 셀에서 처음 만나는 함수·API·수식 해설`을 둡니다. 첫 번째 접기를 열면 API 목록이
+나오고, 필요한 함수만 한 번 더 펼쳐 signature, 입력·반환값, 사용 이유, 대표 수식, 기호,
+수식과 코드의 대응, 직관, tensor shape와 주의점을 확인할 수 있습니다. 같은 설명을 매 셀마다
+반복하지 않고 노트북 안의 첫 사용 위치에서만 자세히 다룹니다.
+
+예를 들어 `np.allclose(a, b)`는 배열 두 개가 정확히 같은 객체인지 확인하는 함수가 아닙니다.
+각 원소에서 다음 부등식을 검사한 뒤 모든 결과를 하나의 `bool`로 축약합니다.
+
+$$
+\lvert a_i-b_i\rvert
+\le \mathrm{atol}+\mathrm{rtol}\,\lvert b_i\rvert
+$$
+
+따라서 부동소수점 반올림 오차가 있는 결과를 `==`보다 안전하게 검증할 때 사용합니다.
+`atol`은 0 근처의 절대 오차, `rtol`은 기준값 크기에 비례하는 상대 오차입니다. 기본
+`atol`이 아주 작은 기준값에서는 지나치게 느슨할 수 있고 식에서 $b_i$가 기준이므로,
+정밀한 실험에서는 두 허용치를 직접 정해야 합니다.
+
+노트북에서 반복되는 NumPy·PyTorch·pandas·scikit-learn·Python API를 주제별로 다시 찾으려면
+[함수·API 한국어 학습 가이드](docs/FUNCTION_API_GUIDE.md)를 사용하세요.
 
 ## 1. 기본 AI 엔지니어링 23개
 
@@ -428,10 +494,13 @@ Streamlit 앱에서는 데이터 분포, PyTorch tensor shape, 분류 확률, Ti
 # 분야별 70쌍 + 데이터 manifest/SHA-256
 .\.venv\Scripts\python.exe tools\validate_field_reproductions.py `
   --execute-solutions --jobs 2
+
+# 239개 학습 노트북의 함수·API·수식 해설과 페어 일치 검사
+.\.venv\Scripts\python.exe tools\validate_api_explanations.py
 ```
 
-현재 검증 기준에서는 단위 테스트 77개와 정답 노트북 113개가 통과했습니다. 이 숫자보다 위
-명령의 현재 결과를 최종 기준으로 사용하세요.
+테스트 수와 생성 노트북 수는 자료가 보강되며 달라질 수 있으므로, 고정 숫자보다 위 명령의
+현재 결과를 최종 기준으로 사용하세요.
 
 ## 학습 체크리스트
 

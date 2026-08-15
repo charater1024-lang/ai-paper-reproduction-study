@@ -12,6 +12,7 @@ from textwrap import dedent
 
 import nbformat
 from nbformat.v4 import new_code_cell, new_markdown_cell, new_notebook
+from notebook_api_explanations import annotate_notebook
 
 ROOT = Path(__file__).resolve().parents[1]
 NOTEBOOK_DIR = ROOT / "notebooks"
@@ -1608,6 +1609,7 @@ def write_notebooks() -> list[tuple[Path, int]]:
     written: list[tuple[Path, int]] = []
     for filename, notebook in notebooks.items():
         destination = NOTEBOOK_DIR / filename
+        annotate_notebook(notebook)
         nbformat.validate(notebook)
         nbformat.write(notebook, destination)
         written.append((destination, len(notebook.cells)))

@@ -70,6 +70,8 @@ jobs:
           python tools/validate_paper_reproductions.py
           python tools/validate_field_reproductions.py
           python tools/validate_portfolio_quality.py
+          python tools/validate_api_explanations.py
+          python tools/apply_api_explanations.py --check
 
       - name: Verify generated paper notebooks are current
         shell: pwsh

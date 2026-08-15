@@ -7,6 +7,7 @@ from pathlib import Path
 
 import nbformat
 from field_curriculum.common import FIELD_ORDER, FieldPaperSpec, clean
+from notebook_api_explanations import append_api_notes
 from notebook_style import format_notebooks
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -149,7 +150,20 @@ def build_notebook(spec: FieldPaperSpec, role: str) -> nbformat.NotebookNode:
         ("markdown", scope_cell(spec), ("scope",)),
         ("markdown", mapping_cell(spec), ("paper-map",)),
     ]
+    api_seen: set[str] = set()
     for cell in spec.cells:
+        if cell.cell_type == "code":
+            if not sources or sources[-1][0] != "markdown":
+                raise ValueError(
+                    f"{spec.field_id}/{spec.number:02d}: every code cell must "
+                    "have an immediately preceding Markdown explanation"
+                )
+            markdown_type, markdown_source, markdown_tags = sources[-1]
+            sources[-1] = (
+                markdown_type,
+                append_api_notes(markdown_source, cell.solution, api_seen),
+                markdown_tags,
+            )
         sources.append(
             (
                 cell.cell_type,
